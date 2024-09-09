@@ -1,11 +1,17 @@
-package com.garden.gardengram.common;
+package com.garden.gardengram.common.hash;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class MD5HashingEncoder {
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
 
-	public static String encode(String message) {
+// Spring bean 에 등록하기 위한 annotation
+//@Primary
+@Component("md5Hashing")
+public class MD5HashingEncoder implements HashingEncoder {
+
+	public String encode(String message) {
 		String result = "";
 		try {
 			MessageDigest messageDigest = MessageDigest.getInstance("md5");
