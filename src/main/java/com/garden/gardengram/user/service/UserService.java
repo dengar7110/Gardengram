@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.garden.gardengram.common.hash.HashingEncoder;
 import com.garden.gardengram.common.hash.MD5HashingEncoder;
+import com.garden.gardengram.user.domain.User;
 import com.garden.gardengram.user.repository.UserRepository;
 
 @Service
@@ -42,6 +43,13 @@ public class UserService {
 			return true;
 		}
 		
+	}
+	
+	public User getUser(String loginId, String password) {
+		
+		String encrpytPassword = encoder.encode(password);
+		
+		return userRepository.selectUser(loginId, encrpytPassword);
 	}
 	
 	

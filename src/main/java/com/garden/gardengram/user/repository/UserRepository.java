@@ -3,6 +3,8 @@ package com.garden.gardengram.user.repository;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import com.garden.gardengram.user.domain.User;
+
 @Mapper
 public interface UserRepository {
 
@@ -13,5 +15,9 @@ public interface UserRepository {
 			, @Param("email") String email);
 
 	public int selectCountByLoginId(@Param("loginId") String loginId);
+	
+	public User selectUser(
+			@Param("loginId") String loginId
+			, @Param("password") String password);
 	
 }

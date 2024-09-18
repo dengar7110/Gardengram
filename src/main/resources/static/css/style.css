@@ -18,3 +18,15 @@ footer {
 	height:70px;
 	background-color: #36DF7A;
 }
+
+.main-contents {
+    width:430px;
+}
+
+.login-box {
+    width:400px;
+}
+
+.big-font {
+    font-size:20px;
+}
