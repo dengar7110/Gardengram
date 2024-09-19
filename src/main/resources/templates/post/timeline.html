@@ -21,21 +21,21 @@
 			<!-- 타임라인 -->
 			<div class="timeline my-4">
 				<!-- 카드 -->
-				<div class="card my-3" th:each="post:${postList}">
+				<div class="card my-3" th:each="card:${cardViewList}">
 					<div class="d-flex justify-content-between p-2">
-						<div th:text="${post.userId}">dulumary</div>
+						<div th:text="${card.loginId}">dulumary</div>
 						<i class="bi bi-three-dots-vertical more-icon"></i>
 					</div>
 					<div>
-						<img class="w-100" th:src="${post.imagePath}">
+						<img class="w-100" th:src="${card.imagePath}">
 					</div>
 					<div class="p-2">
-						<i class="bi bi-heart-fill text-danger unlike-icon" ></i>
+						<i class="bi bi-heart text-danger unlike-icon like-btn"></i>
 						<span>좋아요 11개</span> 
 					</div>
 					
 					<div class="p-2">
-						<b th:text="${post.userId}">dulumary</b> <span th:text="${post.contents}">안녕</span> 
+						<b th:text="${card.loginId}">dulumary</b> <span th:text="${card.contents}">안녕</span> 
 					</div>
 					<!-- 댓글 목록 -->
 					<div class="comment-box">
@@ -65,6 +65,11 @@
 	
 	<script layout:fragment="script">
 		$(document).ready(function () {
+			
+			$(".like-btn").on("click", function() {
+				// 게시글 정보 얻어오기
+				$(this).data();
+			}); 
 			
 			$("#imageIcon").on("click", function() {
 				$("#fileInput").click();

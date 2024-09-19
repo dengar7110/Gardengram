@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.garden.gardengram.post.domain.Post;
+import com.garden.gardengram.post.dto.CardView;
 import com.garden.gardengram.post.service.PostService;
 
 @RequestMapping("/post")
@@ -23,9 +23,9 @@ public class PostController {
 	@GetMapping("/timeline-view")
 	public String timeline(Model model) {
 		
-		List<Post> postList = postService.getPostList();
+		List<CardView> cardViewList	 = postService.getPostList();
 		
-		model.addAttribute("postList", postList);
+		model.addAttribute("cardViewList", cardViewList);
 		
 		return "post/timeline";
 	}

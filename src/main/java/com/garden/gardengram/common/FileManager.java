@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileManager {
 	
-	//상수
+	// 상수
 	public static final String FILE_UPLOAD_PATH = "C:\\Users\\win10-e204\\Desktop\\STUDY\\springProject\\upload\\gardengram";
 
 	// 파일 저장

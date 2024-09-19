@@ -4,8 +4,10 @@
 	layout:decorate="~{layouts/default}">
 	
 	<section layout:fragment="contents" class="contents d-flex justify-content-center">
-		<div class="input-box my-5 p-5 rounded-lg bg-primary">
-			<h2 class="text-center">회원 가입</h2>
+		<div class="input-box p-5 rounded-lg">
+			<div class="d-flex justify-content-center">
+				<img width="400px" alt="logo" src="https://cdn.pixabay.com/photo/2017/02/01/08/55/social-2029113_640.png">
+			</div>
 			
 			<div class="d-flex mt-3 justify-content-between">
 				<input type="text" class="form-control col-8 mr-1" placeholder="아이디" id="idInput">
@@ -19,6 +21,11 @@
 			<input type="text" class="form-control mt-4" placeholder="이름" id="nameInput">
 			<input type="text" class="form-control mt-4" placeholder="이메일" id="emailInput">
 			<button type="button" class="btn btn-secondary btn-block mt-5" id="joinBtn">가입하기</button>
+						<hr>
+			<div class="text-center text-secondary">비밀번호를 잊으셨나요?</div>
+			<div class="mt-4 p-3 d-flex justify-content-center align-items-start bg-white border-rounded">
+				계정이 있으신가요?<a href="/user/login-view">로그인</a>
+			</div>
 		</div>
 	</section>
 	
