@@ -3,6 +3,8 @@ package com.garden.gardengram.post;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,7 +46,25 @@ public class PostRestController {
 		}
 		
 		return resultMap;
-		
-		
 	}
+	
+	@DeleteMapping("/delete")
+	public Map<String, String> deletePost(
+			@RequestParam("id") int id
+			, HttpSession session) {
+		
+		Map<String, String> resultMap = new HashMap<>();
+
+		int userId = (Integer)session.getAttribute("userId");
+		
+		if(postService.deletePost(id, userId)) {
+			resultMap.put("result", "success");
+		} else {
+			resultMap.put("result", "fail");
+		}
+			
+		return resultMap;
+	}
+	
+	
 }
